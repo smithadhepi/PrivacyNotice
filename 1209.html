@@ -2,6 +2,7 @@
 
 <!-- Drop-down elements that will control which notice is displayed -->
 <select id="fill1Dropdown"></select>
+<select id="fill2Dropdown"></select>
 
 <!-- Button element that will trigger the notice update -->
 <button id="otnotice-bundle-button">Update</button>
@@ -19,7 +20,7 @@
     OneTrust.NoticeManagerApi.Initialized.then(function() {
         OneTrust.NoticeManagerApi.InitializeOptions(
             "otnotice-bundle-container",
-            ["fill1Dropdown"],
+            ["fill1Dropdown", "fill2Dropdown"],
             "otnotice-bundle-button"
         );
     });
