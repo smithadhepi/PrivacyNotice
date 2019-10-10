@@ -4,6 +4,7 @@
 <select id="filter1Dropdown"></select>
 <select id="filter2Dropdown"></select>
 <select id="filter3Dropdown"></select>
+<select id="fill4Dropdown"></select>
 
 <!-- Button element that will trigger the notice update -->
 <button id="otnotice-bundle-button">Update</button>
@@ -21,7 +22,7 @@
     OneTrust.NoticeManagerApi.Initialized.then(function() {
         OneTrust.NoticeManagerApi.InitializeOptions(
             "otnotice-bundle-container",
-            ["filter1Dropdown", "filter2Dropdown", "filter3Dropdown"],
+            ["filter1Dropdown", "filter2Dropdown", "filter3Dropdown", "fill4Dropdown"],
             "otnotice-bundle-button"
         );
     });
