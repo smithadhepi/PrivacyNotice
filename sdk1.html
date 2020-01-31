@@ -36,7 +36,7 @@
 
   <div class="form-block">
     <div style="text-align:center;">
-      <h2 class="form-signin-heading">Second Collection Point with custom Token</h2>
+      <h2 class="form-signin-heading">Second Collection Point with custom Token, Topic and Custom Preferences</h2>
     </div>
     <form id="sample_form3" class="form-signin">
       <label for="inputEmail3" class="sr-only">Email address</label>
@@ -45,62 +45,45 @@
       <button class="btn btn-lg btn-primary btn-block" type="submit">Submit</button>
     </form>
   </div>
-  
-  <div class="form-block">
-    <div style="text-align:center;">
-      <h2 class="form-signin-heading">Third Collection Point with custom Token</h2>
-    </div>
-    <form id="sample_form3" class="form-signin">
-      <label for="inputEmail4" class="sr-only">Email address</label>
-      <input type="email" id="inputEmail4" class="form-control" placeholder="Email address" required>
-
-      <button class="btn btn-lg btn-primary btn-block" type="submit">Submit</button>
-    </form>
-  </div>
 
 <!-- OneTrust Consent Receipt Start -->
-<script
-          src="https://appds7c6e.blob.core.windows.net/consent-receipt-scripts/scripts/otconsent-1.0.min.js"
-          type="text/javascript"
-          charset="UTF-8"
-          id="consent-receipt-script">
-  triggerId="trigger";
-  identifierId="inputEmail";
-  confirmationId="confirmation";
-  settingsUrl="https://appds7c6e.blob.core.windows.net/consentmanager-settings/9f2f4efb-d1e9-405f-8dda-43054488121b/0dd0c9d4-e415-435e-a827-6c6642a9302b-draft.json";
-</script><!-- OneTrust Consent Receipt End -->
+<script src="https://crds768d.blob.core.windows.net/privacy-notice-scripts/scripts/otconsent-1.0.js" type="text/javascript" charset="UTF-8" id="consent-receipt-script">
+    settingsUrl="https://crds768d.blob.core.windows.net/consentmanager-settings/184a20e4-c858-4ed6-9294-9d0c7bbc1a9c/25da92eb-9a20-403e-9d86-d95fc6aabf63-active.json";
+    identifierId="inputEmail0"
+</script>
+<!-- OneTrust Consent Receipt End -->
 
 <!-- Custom Integration Start -->
 <script type="text/javascript" charset="UTF-8">
   $(function () {
+    var cp1Purpose = [{Id: "b0dc5e4e-ffe8-4db5-ae5f-577747e5f86a"}];
+    var cp2Purpose = [
+      {
+        Id: "a30c5df5-0b8b-464e-9761-834554a56fb5",
+        Preferences: [{TopicId: "5f0ead40-4270-4f0d-935f-f658b4caeefb"}],
+        CustomPreferences:[
+          {"Id":"436dab8d-da98-4610-ac95-4a9a21db308b","Options":["e2c1ebe4-b554-415a-b1cd-ea03c24f6b47"]}
+        ]
+      }
+    ];
 
     $("#sample_form2").submit(function (event) {
       event.preventDefault();
       const identifier = $("#inputEmail2").val();
-	  const token = "eyJhbGciOiJSUzUxMiJ9.eyJvdEp3dFZlcnNpb24iOjEsInByb2Nlc3NJZCI6IjI1ZGE5MmViLTlhMjAtNDAzZS05ZDg2LWQ5NWZjNmFhYmY2MyIsInByb2Nlc3NWZXJzaW9uIjoxLCJpYXQiOiIyMDE5LTA5LTE2VDE2OjUzOjM3Ljc5MyIsIm1vYyI6IldFQl9GT1JNIiwic3ViIjoiZW1haWwiLCJpc3MiOiJodHRwOi8vZm9ybS5jb20iLCJ0ZW5hbnRJZCI6IjE4NGEyMGU0LWM4NTgtNGVkNi05Mjk0LTlkMGM3YmJjMWE5YyIsImRlc2NyaXB0aW9uIjoienhjIiwiY29uc2VudFR5cGUiOiJGT1JNU1VCTUlUIiwiZG91YmxlT3B0SW4iOmZhbHNlLCJwb2xpY3lfdXJpIjpudWxsLCJhbGxvd05vdEdpdmVuQ29uc2VudHMiOmZhbHNlLCJwdXJwb3NlcyI6W3siaWQiOiI0NmYzMDg2ZS05YjhjLTQ5NDMtYTg5MC00ZTc5ODc2NzkyYTciLCJ2ZXJzaW9uIjoxNSwidG9waWNzIjpbeyJpZCI6IjIzMWRlYzk0LTY3NDAtNDhlYi1hY2Y3LWU0OGJhZTE4NGM1YSJ9XSwiY3VzdG9tUHJlZmVyZW5jZXMiOlt7ImlkIjoiMTRmMDk5OWUtZWYyOS00ZWNmLWE3MGYtMTIwMGI4MDY5Yjk1IiwiaXNSZXF1aXJlZCI6dHJ1ZSwib3B0aW9ucyI6WyJkNWNhMjk4NC1jMDJiLTQzNmItYmJkZi0wMzc0N2M3OTA2ZWUiLCI3MDkyZjNhYy03NjVkLTQ2YWEtYTI0Ny1hZDM2MzIxZjk1YTciLCIzMGYyYWQ1Ny00YWYwLTRiZTMtODQwYS0xMjEzOGYzMGI2OTgiLCIyZTJmMDk0My02YTIwLTQzZTAtYjZkMi1iNjIxYjkyMDRkYTEiXX1dfV0sIm5vdGljZXMiOltdLCJkc0RhdGFFbGVtZW50cyI6W119.IvfGy0YZVOubXVD-I8NeHixHWVRPIuiOVkk7rX4yyejfhybkqGuxGfE5T45UxA2s41ijA5vbjsvdJO-cth3v4n_sKewH6AIMeYfpArRsLBAF6PJp6qj2UbnBScxMC2erRZBIQB_FNEQse_t1IaZRDpduY_yTMnu-n16h_ySoE4NUbqsKfz4QIBkajIyHYjfoD0d7K2SPxy75swYcYXHJrtrqL8ywwzVKYJkvVhPxEzTmXKyfkFHnV3ebVGgILBPWZqHycW7yjFfiySEenQBTyx9SCmCFgVLb19LFPY7jvUcEn1m8A2G8xUw0I-r3wb6xLwWrpSEPxolMov7aCkfFgg";
-      OneTrust.Api.TriggerReceiptAction(identifier, token).then((receiptId) => {
-        console.log("Form 2 got the receipt id back:", receiptId);
-        window.alert(`Form 2 got the receipt id back: ${receiptId}`);
+      const token = "eyJhbGciOiJSUzUxMiJ9.eyJvdEp3dFZlcnNpb24iOjEsInByb2Nlc3NJZCI6IjI1ZGE5MmViLTlhMjAtNDAzZS05ZDg2LWQ5NWZjNmFhYmY2MyIsInByb2Nlc3NWZXJzaW9uIjoyLCJpYXQiOiIyMDE5LTA5LTE2VDE2OjUzOjM3Ljc5MyIsIm1vYyI6IldFQl9GT1JNIiwic3ViIjoiZW1haWwiLCJpc3MiOiJodHRwOi8vZm9ybS5jb20iLCJ0ZW5hbnRJZCI6IjE4NGEyMGU0LWM4NTgtNGVkNi05Mjk0LTlkMGM3YmJjMWE5YyIsImRlc2NyaXB0aW9uIjoienhjIiwiY29uc2VudFR5cGUiOiJGT1JNU1VCTUlUIiwiZG91YmxlT3B0SW4iOmZhbHNlLCJwb2xpY3lfdXJpIjpudWxsLCJhbGxvd05vdEdpdmVuQ29uc2VudHMiOmZhbHNlLCJwdXJwb3NlcyI6W3siaWQiOiJiMGRjNWU0ZS1mZmU4LTRkYjUtYWU1Zi01Nzc3NDdlNWY4NmEiLCJ2ZXJzaW9uIjoxLCJ0b3BpY3MiOltdLCJjdXN0b21QcmVmZXJlbmNlcyI6W119XSwibm90aWNlcyI6W10sImRzRGF0YUVsZW1lbnRzIjpbXX0.XsXVCImHcj4KA486DLG_XrkvMda9syOM-jN0tskB1-7Kzoe_ZOH9dyK7_TPDj1apFlh-5AjtxAjc9cbYZVsLy9tAGFyteHOm7t6cN29iFbB3qGPoZTJqvhahJ_fPPYQUtBy1jhovBxFfMJ_0w_obVnbaJDvynwXr6NvHMoaMYxWXfdb5zFp03uNLKi9ZyXdJ1vQCZp3AnhRO6s8yQTfUqkeR2h1aSoJrxy40dXaDxmGPls7dtpuBNmd0Nlqdq7GmIh-DsJOKBMyhr_qe_fUU5t0Cy-TIwygDUWRiarxfX4DyT8w34eGoLgnkzHplZzjkUXpJ1co7ntmKf5qUsr8JNA";
+      OneTrust.Api.TriggerReceiptAction(identifier, token, cp1Purpose).then((receiptId) => {
+        console.log("Form 1 got the receipt id back:", receiptId);
+        window.alert(`Form 1 got the receipt id back: ${receiptId}`);
       });
     });
 
     $("#sample_form3").submit(function (event) {
       event.preventDefault();
       const identifier = $("#inputEmail3").val();
-      const token = "eyJhbGciOiJSUzUxMiJ9.eyJvdEp3dFZlcnNpb24iOjEsInByb2Nlc3NJZCI6ImI1ZWFlNTNjLTRiOTMtNDQxNi05Yzc4LTU0NjI5NDUxYjYwYiIsInByb2Nlc3NWZXJzaW9uIjoxLCJpYXQiOiIyMDIwLTAxLTE1VDIwOjU5OjU5LjQ0IiwibW9jIjoiV0VCX0ZPUk0iLCJzdWIiOiJFbWFpbCIsImlzcyI6bnVsbCwidGVuYW50SWQiOiI5ZjJmNGVmYi1kMWU5LTQwNWYtOGRkYS00MzA1NDQ4ODEyMWIiLCJkZXNjcmlwdGlvbiI6InNkYWZzZCIsImNvbnNlbnRUeXBlIjoiRk9STVNVQk1JVCIsImRvdWJsZU9wdEluIjpmYWxzZSwicG9saWN5X3VyaSI6bnVsbCwiYWxsb3dOb3RHaXZlbkNvbnNlbnRzIjpmYWxzZSwicHVycG9zZXMiOlt7ImlkIjoiNmY5MDEyZmUtM2E4Zi00NDIwLWIyZDUtNmQ4ZjRjMTkyZWJlIiwidmVyc2lvbiI6MSwidG9waWNzIjpbXSwiY3VzdG9tUHJlZmVyZW5jZXMiOltdfV0sIm5vdGljZXMiOltdLCJkc0RhdGFFbGVtZW50cyI6W119.gip47DnN5VJMwO2A_c3CBDRb-7OH9Tin3WcpOctqwB5XdzuDlFfRpby68IgiTL_IcnoE06zzsQj8Qna0nlwN0o3Zr_i-VaO41NzSspFH5dXPiSN3z1Nke_48Oe7j-gT0TUltTcUsoUG0zP7QdseHS15c2hCU2DCAUEM3rx8-hefzHaZ1I94ABL4lnmXL0bHGCJjbELc14b5tg7KYFH31uFGbmg9lKBTfLjulhMJUm2ocwDGayVmc21b-A-8oaBu5bhgbH0LYu-oLwzoRMaHjEGzI2V5YOWFsERh0SIy55fmsQLWaKLir3tCFrgER8LfFqiKKR6Tu1VPl2YPTyFARxA";
-      OneTrust.Api.TriggerReceiptAction(identifier, token).then((receiptId) => {
-        console.log("Form 3 got the receipt id back:", receiptId);
-        window.alert(`Form 3 got the receipt id back: ${receiptId}`);
-      });
-    });
-	
-	$("#sample_form2").submit(function (event) {
-      event.preventDefault();
-      const identifier = $("#inputEmail4").val();
-      const token = "eyJhbGciOiJSUzUxMiJ9.eyJvdEp3dFZlcnNpb24iOjEsInByb2Nlc3NJZCI6IjFmNzJiNTdmLWE4YjQtNDk3Mi1hZTk3LWNhZDg2ODJmNDAwOSIsInByb2Nlc3NWZXJzaW9uIjo0LCJpYXQiOiIyMDE5LTEwLTAzVDA2OjM4OjQ2LjQ3MyIsIm1vYyI6IldFQl9GT1JNIiwic3ViIjoiRW1haWwiLCJpc3MiOiJ3d3cueWFob28uY29tIiwidGVuYW50SWQiOiIxODRhMjBlNC1jODU4LTRlZDYtOTI5NC05ZDBjN2JiYzFhOWMiLCJkZXNjcmlwdGlvbiI6ImQiLCJjb25zZW50VHlwZSI6IkZPUk1TVUJNSVQiLCJkb3VibGVPcHRJbiI6ZmFsc2UsInBvbGljeV91cmkiOm51bGwsImFsbG93Tm90R2l2ZW5Db25zZW50cyI6ZmFsc2UsInB1cnBvc2VzIjpbeyJpZCI6ImE4Nzk1ZmZjLWYyMTMtNDc5OC05OGJkLWJlNGQxMzdlMTlhMyIsInZlcnNpb24iOjcsInRvcGljcyI6W10sImN1c3RvbVByZWZlcmVuY2VzIjpbXX1dLCJub3RpY2VzIjpbXSwiZHNEYXRhRWxlbWVudHMiOltdfQ.HfGebFChzZ3XvAPXShS3V0h3QbXsnfcxwgc0wvsi_3e9C3p6hLf7soTb2g4wJyPTYEl9F363b734Tt8hNz2q30unwvU6dojp8rKMpVqaFp5gs6O5BJUWIarpOu4u7J2j0Ren0CJpQyamnFhg9IJXeebuTExJC5V_luosD_x2NtFH2j6xMpxQYRiK1mZ6DLM3BvXRL-PEETCt3hFcERelYX6nafVbeeOEYwZZfCsqQCMjQHiZbr-dqocgix18-6DCVCzHVbsILaTHYUDMh0c5ZD2-7xOgPRl0Sz7FlQ2MZL25CeYFYu6VQl-AtU8ORRgxyX6AvMmfB2O0zHnrK_wtWg"      OneTrust.Api.TriggerReceiptAction(identifier, token).then((receiptId) => {
-        OneTrust.Api.TriggerReceiptAction(identifier, token).then((receiptId) => {
-		console.log("Form 4 got the receipt id back:", receiptId);
-        window.alert(`Form 4 got the receipt id back: ${receiptId}`);
+      const token = "eyJhbGciOiJSUzUxMiJ9.eyJvdEp3dFZlcnNpb24iOjEsInByb2Nlc3NJZCI6IjI1NTJhM2U2LTJhOTItNGMzYS04NjE1LTM3MGVjZmRmZDM0YSIsInByb2Nlc3NWZXJzaW9uIjoxLCJpYXQiOiIyMDE5LTEwLTE0VDEzOjI1OjE4LjUzIiwibW9jIjoiV0VCX0ZPUk0iLCJzdWIiOiJFbWFpbCIsImlzcyI6Imh0dHBzOi8vZ29vZ2xlLmNvbSIsInRlbmFudElkIjoiMTg0YTIwZTQtYzg1OC00ZWQ2LTkyOTQtOWQwYzdiYmMxYTljIiwiZGVzY3JpcHRpb24iOiJhYmMiLCJjb25zZW50VHlwZSI6IkZPUk1TVUJNSVQiLCJkb3VibGVPcHRJbiI6ZmFsc2UsInBvbGljeV91cmkiOm51bGwsImFsbG93Tm90R2l2ZW5Db25zZW50cyI6ZmFsc2UsInB1cnBvc2VzIjpbeyJpZCI6ImEzMGM1ZGY1LTBiOGItNDY0ZS05NzYxLTgzNDU1NGE1NmZiNSIsInZlcnNpb24iOjEsInRvcGljcyI6W3siaWQiOiI1ZjBlYWQ0MC00MjcwLTRmMGQtOTM1Zi1mNjU4YjRjYWVlZmIifV0sImN1c3RvbVByZWZlcmVuY2VzIjpbeyJpZCI6IjQzNmRhYjhkLWRhOTgtNDYxMC1hYzk1LTRhOWEyMWRiMzA4YiIsImlzUmVxdWlyZWQiOmZhbHNlLCJvcHRpb25zIjpbIjVhZjgzZDZmLTFiZTMtNDE5Mi1iZWRlLTAxZDdhYjIxNGFiMSIsImUyYzFlYmU0LWI1NTQtNDE1YS1iMWNkLWVhMDNjMjRmNmI0NyJdfV19XSwibm90aWNlcyI6W10sImRzRGF0YUVsZW1lbnRzIjpbIkZpcnN0IE5hbWUiLCJMYXN0IE5hbWUiXX0.decPCqVzZHM_qxMpupeIooegTEsI3qUzYcd1AF-8NFqDG6V-u2ST7bb8mZ4lbNKcfvPAFs7MX_0RgiomykkTAlycV4JkQwgvO8CAvQvrVaf2f65pafoJq1TTFBVk3LDd34AjQoVZ052oakpI4MRAsI1hIt3nfrF0ambzgYc68LiNDlxruC_4JiANAP-PwDNLyt9ACluY8GUmJcqexS05OiJUlT8dRDy0Mfak__Hq7h5_AEC1idICGDhbZ1COdzG5-LEjnOQs9SOGIaQoYLrL_oPf4dbIEslQ4rZiXJwf0us4HAdlt7rSSvLGjkgdN8dLmFftVfE1inDyXBY1Mw_R5Q";
+      OneTrust.Api.TriggerReceiptAction(identifier, token, cp2Purpose).then((receiptId) => {
+        console.log("Form 2 got the receipt id back:", receiptId);
+        window.alert(`Form 2 got the receipt id back: ${receiptId}`);
       });
     });
   });
