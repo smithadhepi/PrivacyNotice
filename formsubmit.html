@@ -1,0 +1,90 @@
+<!Doctype html>
+<html>
+
+<head>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ"
+    crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <title>Simple SDK Form</title>
+</head>
+
+<body>
+  <div class="container">
+    <div style="text-align:center;">
+      <h2 class="form-signin-heading">Simple SDK Form</h2>
+    </div>
+    <form class="form-signin" action="confirm.html" method="get">
+      <input type="hidden" id="confirmation" name="receiptId" value="" />
+      <label for="name" class="sr-only">Your name</label>
+      <input type="text" id="name" class="form-control" placeholder="Your name">
+
+      <label for="inputEmail" class="sr-only">Email address</label>
+      <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required>
+      <button id="trigger" class="btn btn-lg btn-primary btn-block" type="submit">Submit form</button>
+    </form>
+  </div>
+<!-- OneTrust Consent Receipt Start -->
+<script
+  src="https://qa-ds-cdn.1trust.app/consent-receipt-scripts/scripts/otconsent-1.0.min.js"
+  type="text/javascript"
+  charset="UTF-8"
+  id="consent-receipt-script">
+  triggerId="trigger";
+  identifierId="inputEmail";
+  confirmationId="confirmation";
+  token="eyJhbGciOiJSUzUxMiJ9.eyJvdEp3dFZlcnNpb24iOjEsInByb2Nlc3NJZCI6ImQwMjY1ZjllLTYzMTYtNDlkMS05OTQwLTdhODg3NzY1MDkzZiIsInByb2Nlc3NWZXJzaW9uIjoxLCJpYXQiOiIyMDIwLTA2LTAyVDA2OjM0OjEwLjQxNyIsIm1vYyI6IldFQl9GT1JNIiwic3ViIjoiRW1haWwiLCJpc3MiOm51bGwsInRlbmFudElkIjoiNDNkYTg1NDUtMzYxOS00ZWEwLWFiMGItYmZhZDQ3NTIzZTM1IiwiZGVzY3JpcHRpb24iOiJkIiwiY29uc2VudFR5cGUiOiJGT1JNU1VCTUlUIiwiZG91YmxlT3B0SW4iOmZhbHNlLCJwb2xpY3lfdXJpIjpudWxsLCJhbGxvd05vdEdpdmVuQ29uc2VudHMiOmZhbHNlLCJwdXJwb3NlcyI6W3siaWQiOiI5M2Q5ZTU3Yi00YTFhLTQ1M2YtYTM0Ny05ZjhjZTM1Mzg1NGEiLCJ2ZXJzaW9uIjoxLCJ0b3BpY3MiOlt7ImlkIjoiOWNhODQ5NWUtYzE0My00MzIwLTk5YzQtNTRhMTg0YTEwN2I2In1dLCJjdXN0b21QcmVmZXJlbmNlcyI6W3siaWQiOiJmYWRkMjgxYy0wYjcxLTRkNTgtYjcxZC1kZjNkNDhiMDQwYzgiLCJpc1JlcXVpcmVkIjpmYWxzZSwib3B0aW9ucyI6WyI0OTJiN2Q1Yy00ZTZmLTQyZGMtOWE2Ni1hMGZjNjMyZGJhY2YiLCI0Yzg1Mjc1Ni02ZWJjLTRkZDctYmM2Ny02NjNkNGY0NDYzNWQiXX0seyJpZCI6IjA1OWRiNDkzLWNkZjQtNDdhYS1hY2I0LWNkNjcyMGQ3YzI0YSIsImlzUmVxdWlyZWQiOmZhbHNlLCJvcHRpb25zIjpbIjZkYWUyZTU0LWI5OTQtNDlhYy05MDhhLWNkM2M1NDFkOTgwOSIsImQxZmZmMTBiLWViNTgtNGJmZS05MWE0LWMxMDg2NDJkMGVhYSJdfV19XSwibm90aWNlcyI6W10sImRzRGF0YUVsZW1lbnRzIjpbXX0.PjA_uesMG-rhKYSHmE57s2SwgvBOUK3hQWXMpgHgn7o4v3Gz_pyxsKYQvxKoe__E3-aNTFLTdywB3zwyvj3s7voe0ErRuOugQcXkTYNY33gIza07aaSyp-ez8NkTi4Qag2EWfm0UK5RAs8mpZb5BN0dX7jBajCLF3LOu5OlFyTnJjfVA6EedM4r7-zig8j0CvxXEXk6ufEvJ92ychKaygx9Ks1SiOIQ6JByOWlRdOlqx8DQERsjSG3XneySouRlpagohG68EoIdZu0loko72yMimQxpVdm9NCtkl9VLAEcodHj8V4XbEUokdizDELH_zSU33IhvYM1BHW7qsOu-GNg";
+  settings="eyJyZWNlaXB0QXBpRW5kcG9pbnQiOiJodHRwczovL3FhLXBvcnRhbC4xdHJ1c3QuYXBwL3JlcXVlc3QvdjEvY29uc2VudHJlY2VpcHRzIiwibWFudWFsVHJpZ2dlciI6ZmFsc2UsImNvbnRpbnVlT25FcnJvciI6dHJ1ZX0=";
+</script>
+<script type="text/javascript" charset="UTF-8">
+  OneTrust.ScriptTag.Preferences = [  
+  {
+    "purpose": "93d9e57b-4a1a-453f-a347-9f8ce353854a",
+    "identifierAttributes": "value",
+    "identifierValues": "Purpose_0206",
+    "topics": [    
+    {
+      "topic": "9ca8495e-c143-4320-99c4-54a184a107b6",
+      "identifierAttributes": "value",
+      "identifierValues": "Topic_0206"
+    }
+    ],
+    "customPreferences": [    
+    {
+      "customPreference": "fadd281c-0b71-4d58-b71d-df3d48b040c8",
+      "options": [      
+      {
+        "option": "492b7d5c-4e6f-42dc-9a66-a0fc632dbacf",
+        "identifierAttributes": "value",
+        "identifierValues": "Option 1"
+      },      
+      {
+        "option": "4c852756-6ebc-4dd7-bc67-663d4f44635d",
+        "identifierAttributes": "value",
+        "identifierValues": "Option 2"
+      }
+      ]
+    },    
+    {
+      "customPreference": "059db493-cdf4-47aa-acb4-cd6720d7c24a",
+      "options": [      
+      {
+        "option": "6dae2e54-b994-49ac-908a-cd3c541d9809",
+        "identifierAttributes": "value",
+        "identifierValues": "Option 1"
+      },      
+      {
+        "option": "d1fff10b-eb58-4bfe-91a4-c108642d0eaa",
+        "identifierAttributes": "value",
+        "identifierValues": "Option 2"
+      }
+      ]
+    }
+    ]
+  }
+  ];
+</script>
+<!-- OneTrust Consent Receipt End -->
+<script src="site.js" type="text/javascript" charset="UTF-8"></script>
+</body>
+
+</html>
