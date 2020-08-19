@@ -1,0 +1,10 @@
+<script>
+    var xmlHttp = new XMLHttpRequest();
+    xmlHttp.open("GET", "https://consent-api.1trust.app/v1/preferences?syncgroup=6eb83f74-c279-4c79-9dff-a4b0757ba9f4", false);
+    xmlHttp.setRequestHeader("Content-Type", "application/json");
+    xmlHttp.setRequestHeader("identifier", "test_nochoice43@gmail.com");
+    xmlHttp.setRequestHeader("tenantId", "7643c091-016c-4dc0-a54d-303dc28495b1");
+    xmlHttp.setRequestHeader("Authorization", "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ0ZXN0X25vY2hvaWNlNDNAZ21haWwuY29tIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyLCJleHAiOjE2MTYyMzkwMjJ9.jf5CDX3HOsX_4zBbkbCAbqEj132VCPmOmOwwkPDUROo");
+    xmlHttp.send();
+    document.write(xmlHttp.responseText);
+</script>
